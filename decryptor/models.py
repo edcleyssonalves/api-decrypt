@@ -3,7 +3,7 @@ from django.db import models
 class PaymentProof(models.Model):
     # dados do contato
     contact_name = models.CharField(max_length=255, blank=True, null=True)
-    contact_number = models.CharField(max_length=15)
+    contact_number = models.CharField(max_length=50)
     chat_id = models.CharField(max_length=255, blank=True, null=True)
 
     # dados da midia
