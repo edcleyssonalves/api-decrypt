@@ -1,3 +1,4 @@
+import os
 from pathlib import Path
 from datetime import timedelta
 
@@ -14,12 +15,13 @@ SECRET_KEY = 'django-insecure-)cifjimd)dzv%-$2+*_3-@%gs-$5af#_*f4m4$_qiay48b_#nw
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
 
 INSTALLED_APPS = [
+     "jazzmin",
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -108,13 +110,19 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = 'static/'
+STATICFILES_DIRS = [BASE_DIR / "static"]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+MEDIA_URL = "/media/"
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 
 REST_FRAMEWORK = {
@@ -129,4 +137,20 @@ REST_FRAMEWORK = {
 SIMPLE_JWT = {
     "ACCESS_TOKEN_LIFETIME": timedelta(days=1),  # validade do token de acesso
     "REFRESH_TOKEN_LIFETIME": timedelta(days=7), # validade do token de atualização
+}
+
+
+JAZZMIN_SETTINGS = {
+    "site_title": "Painel de Comprovantes",
+    "site_header": "Comprovantes de Pagamento",
+    "site_brand": "Painel",
+    "show_sidebar": True,
+    "welcome_sign": "Bem-vindo ao painel administrativo",
+    "search_model": "decryptor.paymentproof",
+    "site_logo": "/img/logo.png",
+    "login_logo_dark": None,
+    "login_logo": None,
+    "site_logo_classes": "img-circle",
+    "show_ui_builder": True,
+    "copyright": "Astrix Tecnologia",
 }
