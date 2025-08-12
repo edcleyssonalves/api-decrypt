@@ -10,7 +10,7 @@ class PaymentProof(models.Model):
     file = models.FileField(upload_to="proofs/", blank=True, null=True)
     media_type = models.CharField(max_length=20)  # ex: image, pdf
     media_key = models.TextField()
-    media_url = models.URLField()
+    media_url = models.URLField(max_length=400)
 
     # controle
     received_at = models.DateTimeField(auto_now_add=True)
