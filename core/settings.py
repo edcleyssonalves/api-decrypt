@@ -149,7 +149,6 @@ JAZZMIN_SETTINGS = {
     "site_logo": "/img/logo.png",
     "login_logo_dark": None,
     "login_logo": None,
-    "site_logo_classes": "img-circle",
     "show_ui_builder": True,
     "copyright": "Astrix Tecnologia",
 }

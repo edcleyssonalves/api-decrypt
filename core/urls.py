@@ -9,7 +9,7 @@ urlpatterns = [
     # JWT
     path('api/v1/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/v1/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
-    # Rotas do app decryptor
+    # rotas do app decryptor
     path('api/v1/', include('decryptor.urls')),
 ]
 
