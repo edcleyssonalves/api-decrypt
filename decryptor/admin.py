@@ -25,7 +25,7 @@ class PaymentProofAdmin(admin.ModelAdmin):
 
     def numero_contato(self, obj):
         return obj.contact_number
-    numero_contato.short_description = "Número do Contato"
+    numero_contato.short_description = "WhatsApp"
 
     def tipo_midia(self, obj):
         return obj.media_type
@@ -33,7 +33,7 @@ class PaymentProofAdmin(admin.ModelAdmin):
 
     def recebido_em(self, obj):
         return obj.received_at
-    recebido_em.short_description = "Recebido em"
+    recebido_em.short_description = "Data de Envio"
 
     def preview(self, obj):
         if not obj.file:

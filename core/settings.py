@@ -137,29 +137,15 @@ SIMPLE_JWT = {
     "REFRESH_TOKEN_LIFETIME": timedelta(days=7),  # validade do token de atualização
 }
 
-'''
-JAZZMIN_SETTINGS = {
-    "site_title": "Painel de Comprovantes",
-    "site_header": "Comprovantes de Pagamento",
-    "site_brand": "Painel",
-    "show_sidebar": True,
-    "welcome_sign": "Bem-vindo ao painel administrativo",
-    "search_model": "decryptor.paymentproof",
-    "site_logo": "/img/logo.png",
-    "login_logo_dark": None,
-    "login_logo": None,
-    "show_ui_builder": True,
-    "copyright": "Astrix Tecnologia",
-}
-'''
+
 
 JAZZMIN_SETTINGS = {
     "site_title": "Painel de Comprovantes",
     "site_header": "Comprovantes de Pagamento",
-    "site_brand": "Painel",
-    "site_logo": "/img/logo.png",
+    "site_brand": "Painel Admin",
     "welcome_sign": "Bem-vindo ao painel administrativo",
     "copyright": "Astrix Tecnologia",
+    "show_ui_builder": True,
 
     # Modelo para busca
     "search_model": "decryptor.paymentproof",
@@ -171,21 +157,11 @@ JAZZMIN_SETTINGS = {
         {"name": "Site", "url": "/", "new_window": True},
     ],
 
-    "custom_links": {
-        # Links extras em apps específicos
-        "decryptor": [{
-            "name": "Importar Comprovantes",
-            "url": "import_comprovantes",  # Nome da URL registrada no Django
-            "icon": "fas fa-file-import",
-            "permissions": ["decryptor.add_paymentproof"]
-        }],
-    },
-
     # Ordem e agrupamento do menu lateral
     "order_with_respect_to": [
         "auth",  # Usuários e grupos primeiro
         "decryptor",
-        "authentication"  # Seu app principal
+        "authentication",  # Seu app principal
     ],
 
     "icons": {
