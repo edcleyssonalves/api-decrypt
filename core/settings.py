@@ -32,6 +32,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework_simplejwt',
     # apps 
+    'authentication',
     'decryptor',
 ]   
 
@@ -113,15 +114,13 @@ USE_TZ = True
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = 'static/'
 
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
-MEDIA_URL = "/media/"
-MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 
 REST_FRAMEWORK = {
@@ -138,7 +137,7 @@ SIMPLE_JWT = {
     "REFRESH_TOKEN_LIFETIME": timedelta(days=7), # validade do token de atualização
 }
 
-
+'''
 JAZZMIN_SETTINGS = {
     "site_title": "Painel de Comprovantes",
     "site_header": "Comprovantes de Pagamento",
@@ -151,4 +150,49 @@ JAZZMIN_SETTINGS = {
     "login_logo": None,
     "show_ui_builder": True,
     "copyright": "Astrix Tecnologia",
+}
+'''
+
+JAZZMIN_SETTINGS = {
+    "site_title": "Painel de Comprovantes",
+    "site_header": "Comprovantes de Pagamento",
+    "site_brand": "Painel",
+    "site_logo": "/img/logo.png",
+    "welcome_sign": "Bem-vindo ao painel administrativo",
+    "copyright": "Astrix Tecnologia",
+
+    # Modelo para busca
+    "search_model": "decryptor.paymentproof",
+
+    # Menu lateral customizado
+    "topmenu_links": [
+        # Links no topo (acima do menu lateral)
+        {"name": "Dashboard", "url": "admin:index", "permissions": ["auth.view_user"]},
+        {"name": "Site", "url": "/", "new_window": True},
+    ],
+
+    "custom_links": {
+        # Links extras em apps específicos
+        "decryptor": [{
+            "name": "Importar Comprovantes",
+            "url": "import_comprovantes",  # Nome da URL registrada no Django
+            "icon": "fas fa-file-import",
+            "permissions": ["decryptor.add_paymentproof"]
+        }],
+    },
+
+    # Ordem e agrupamento do menu lateral
+    "order_with_respect_to": [
+        "auth",  # Usuários e grupos primeiro
+        "decryptor",  # Seu app principal
+    ],
+
+    "icons": {
+        "auth": "fas fa-users-cog",
+        "auth.user": "fas fa-user",
+        "auth.Group": "fas fa-users",
+        "decryptor.paymentproof": "fas fa-file-invoice-dollar",
+    },
+
+    "navigation_expanded": True,  # Menu lateral já aberto
 }
