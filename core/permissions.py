@@ -1,6 +1,5 @@
 from rest_framework import permissions
 
-# f'{app_name}.{action_name}_{model_name}
 
 class GlobalDefaultPermission(permissions.BasePermission):
 
@@ -9,7 +8,7 @@ class GlobalDefaultPermission(permissions.BasePermission):
             method=request.method,
             view=view,
         )
-        
+
         if not model_permission_codename:
             return False
 
@@ -25,15 +24,15 @@ class GlobalDefaultPermission(permissions.BasePermission):
 
         except AttributeError:
             return None
-        
 
     def __get_action_sufix(self, method):
         method_actions = {
-            'GET':'view',
+            'GET': 'view',
             'POST': 'add',
             'PUT': 'change',
             'DELETE': 'delete',
             'OPTIONS': 'view',
             'HEAD': 'view',
         }
-        return method_actions.get(method,'')
+
+        return method_actions.get(method, '')

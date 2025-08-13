@@ -14,7 +14,7 @@ class PaymentProofAdmin(admin.ModelAdmin):
         "preview",
         "download_link",
     )
-    
+
     list_filter = ("status", "media_type", "received_at")
     search_fields = ("contact_number", "contact_name", "chat_id")
     readonly_fields = ("received_at", "processed_at")
@@ -38,7 +38,7 @@ class PaymentProofAdmin(admin.ModelAdmin):
     def preview(self, obj):
         if not obj.file:
             return "-"
-        
+
         url = obj.file.url
         return format_html(
             '<a href="{}" target="_blank" class="button" style="padding:4px 10px; background:#1a73e8; color:#fff; border-radius:4px; text-decoration:none;">Visualizar</a>',

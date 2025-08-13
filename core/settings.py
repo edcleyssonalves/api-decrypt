@@ -31,10 +31,10 @@ INSTALLED_APPS = [
     # libs
     'rest_framework',
     'rest_framework_simplejwt',
-    # apps 
+    # apps
     'authentication',
     'decryptor',
-]   
+]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -134,7 +134,7 @@ REST_FRAMEWORK = {
 
 SIMPLE_JWT = {
     "ACCESS_TOKEN_LIFETIME": timedelta(days=1),  # validade do token de acesso
-    "REFRESH_TOKEN_LIFETIME": timedelta(days=7), # validade do token de atualização
+    "REFRESH_TOKEN_LIFETIME": timedelta(days=7),  # validade do token de atualização
 }
 
 '''

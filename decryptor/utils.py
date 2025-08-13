@@ -1,6 +1,5 @@
 import base64
 import requests
-import uuid
 from cryptography.hazmat.primitives.kdf.hkdf import HKDF
 from cryptography.hazmat.primitives import hashes, padding
 from cryptography.hazmat.backends import default_backend
@@ -12,6 +11,7 @@ INFO_KEYS = {
     "audio": b"WhatsApp Audio Keys",
     "document": b"WhatsApp Document Keys"
 }
+
 
 def descriptografar_midia(media_url: str, media_key_b64: str, tipo_midia: str) -> tuple[bytes, str]:
     """
