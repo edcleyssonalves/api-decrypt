@@ -7,10 +7,11 @@ from rest_framework.exceptions import ValidationError
 from .models import PaymentProof
 from .serializers import PaymentProofSerializer
 from .utils import descriptografar_midia
+from core.permissions import GlobalDefaultPermission
 
 
 class PaymentProofCreateListView(generics.ListCreateAPIView):
-    permission_classes = [IsAuthenticated]
+    permission_classes = (IsAuthenticated, GlobalDefaultPermission)
     queryset = PaymentProof.objects.all()
     serializer_class = PaymentProofSerializer
 
@@ -38,6 +39,6 @@ class PaymentProofCreateListView(generics.ListCreateAPIView):
 
 
 class PaymentProofRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
-    permission_classes = [IsAuthenticated]
+    permission_classes = (IsAuthenticated, GlobalDefaultPermission)
     queryset = PaymentProof.objects.all()
     serializer_class = PaymentProofSerializer

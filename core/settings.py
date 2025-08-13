@@ -21,7 +21,7 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
-     "jazzmin",
+    "jazzmin",
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -184,7 +184,8 @@ JAZZMIN_SETTINGS = {
     # Ordem e agrupamento do menu lateral
     "order_with_respect_to": [
         "auth",  # Usuários e grupos primeiro
-        "decryptor",  # Seu app principal
+        "decryptor",
+        "authentication"  # Seu app principal
     ],
 
     "icons": {
