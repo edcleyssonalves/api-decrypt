@@ -13,7 +13,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-)cifjimd)dzv%-$2+*_3-@%gs-$5af#_*f4m4$_qiay48b_#nw'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -21,7 +21,7 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
-     "jazzmin",
+    "jazzmin",
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -32,6 +32,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework_simplejwt',
     # apps 
+    'authentication',
     'decryptor',
 ]   
 
@@ -142,13 +143,34 @@ SIMPLE_JWT = {
 JAZZMIN_SETTINGS = {
     "site_title": "Painel de Comprovantes",
     "site_header": "Comprovantes de Pagamento",
-    "site_brand": "Painel",
-    "show_sidebar": True,
+    "site_brand": "Painel Admin",
     "welcome_sign": "Bem-vindo ao painel administrativo",
-    "search_model": "decryptor.paymentproof",
-    "site_logo": "/img/logo.png",
-    "login_logo_dark": None,
-    "login_logo": None,
-    "show_ui_builder": True,
     "copyright": "Astrix Tecnologia",
+    "show_ui_builder": True,
+
+    # Modelo para busca
+    "search_model": "decryptor.paymentproof",
+
+    # Menu lateral customizado
+    "topmenu_links": [
+        # Links no topo (acima do menu lateral)
+        # {"name": "Dashboard", "url": "admin:index", "permissions": ["auth.view_user"]},
+        # {"name": "Site", "url": "/", "new_window": True},
+    ],
+
+    # Ordem e agrupamento do menu lateral
+    "order_with_respect_to": [
+        "auth",  # Usuários e grupos primeiro
+        "decryptor",
+        "authentication", 
+    ],
+
+    "icons": {
+        "auth": "fas fa-users-cog",
+        "auth.user": "fas fa-user",
+        "auth.Group": "fas fa-users",
+        "decryptor.paymentproof": "fas fa-file-invoice-dollar",
+    },
+
+    "navigation_expanded": True,  
 }
