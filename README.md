@@ -47,6 +47,8 @@ Veja [`decryptor/urls.py`](decryptor/urls.py):
 
 - `POST /api/v1/paymentproof/` — Cria comprovante
 - `GET /api/v1/paymentproof/` — Lista comprovantes
+- `GET /api/v1/paymentproof/<id>/` — Detalha o comprovante
+- `GET /api/v1/paymentproof/<id>/` — Deleta o comprovante
 - `GET /api/v1/paymentproof/<id>/readfile/` — Lê texto do comprovante
 - `GET /api/v1/paymentproof/readfile/` — Lê todos os comprovantes processados
 
