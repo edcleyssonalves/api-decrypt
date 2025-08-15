@@ -1,10 +1,13 @@
 import base64
 import requests
-import uuid
 from cryptography.hazmat.primitives.kdf.hkdf import HKDF
 from cryptography.hazmat.primitives import hashes, padding
 from cryptography.hazmat.backends import default_backend
 from cryptography.hazmat.primitives.ciphers import Cipher, algorithms, modes
+import io
+import PyPDF2
+import pytesseract
+from PIL import Image
 
 INFO_KEYS = {
     "image": b"WhatsApp Image Keys",
@@ -50,3 +53,44 @@ def descriptografar_midia(media_url: str, media_key_b64: str, tipo_midia: str) -
 
     extensao = ".pdf" if tipo_midia == "document" else ".jpg"
     return unpadded_data, extensao
+
+
+def ler_pdf(conteudo_bytes: bytes) -> str:
+    """
+    Lê um PDF a partir de bytes e retorna o texto.
+    Usa stream para não carregar o arquivo inteiro em memória de forma desnecessária.
+    """
+    with io.BytesIO(conteudo_bytes) as pdf_buffer:
+        leitor = PyPDF2.PdfReader(pdf_buffer)
+        texto = ""
+        for pagina in leitor.pages:
+            page_text = pagina.extract_text()
+            if page_text:
+                texto += page_text + "\n"
+    return texto.strip()
+
+
+def ler_imagem(conteudo_bytes: bytes, lang="por") -> str:
+    """
+    Lê uma imagem a partir de bytes e retorna o texto via OCR.
+    """
+    with io.BytesIO(conteudo_bytes) as img_buffer:
+        imagem = Image.open(img_buffer)
+        # Opcional: converter para RGB ou P&B para melhorar OCR
+        if imagem.mode != "RGB":
+            imagem = imagem.convert("RGB")
+        texto = pytesseract.image_to_string(imagem, lang=lang)
+    return texto.strip()
+
+
+def ler_arquivo(conteudo_bytes: bytes, extensao: str) -> str:
+    """
+    Decide automaticamente se lê PDF ou imagem com base na extensão.
+    """
+    extensao = extensao.lower()
+    if extensao == ".pdf":
+        return ler_pdf(conteudo_bytes)
+    elif extensao in [".jpg", ".jpeg", ".png"]:
+        return ler_imagem(conteudo_bytes)
+    else:
+        raise ValueError(f"Tipo de arquivo não suportado: {extensao}")
