@@ -21,7 +21,11 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
+<<<<<<< HEAD
     "jazzmin",
+=======
+    'jazzmin',
+>>>>>>> 0d3d1ea66e2c705bac8263807d4e1d17085d9a60
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -31,7 +35,11 @@ INSTALLED_APPS = [
     # libs
     'rest_framework',
     'rest_framework_simplejwt',
+<<<<<<< HEAD
     # apps
+=======
+    # apps 
+>>>>>>> 0d3d1ea66e2c705bac8263807d4e1d17085d9a60
     'authentication',
     'decryptor',
 ]
@@ -133,8 +141,13 @@ REST_FRAMEWORK = {
 }
 
 SIMPLE_JWT = {
+<<<<<<< HEAD
     "ACCESS_TOKEN_LIFETIME": timedelta(days=1),  # validade do token de acesso
     "REFRESH_TOKEN_LIFETIME": timedelta(days=7),  # validade do token de atualização
+=======
+    "ACCESS_TOKEN_LIFETIME": timedelta(days=3),  # validade do token de acesso
+    "REFRESH_TOKEN_LIFETIME": timedelta(days=14), # validade do token de atualização
+>>>>>>> 0d3d1ea66e2c705bac8263807d4e1d17085d9a60
 }
 
 
@@ -153,15 +166,24 @@ JAZZMIN_SETTINGS = {
     # Menu lateral customizado
     "topmenu_links": [
         # Links no topo (acima do menu lateral)
+<<<<<<< HEAD
         {"name": "Dashboard", "url": "admin:index", "permissions": ["auth.view_user"]},
         {"name": "Site", "url": "/", "new_window": True},
+=======
+        # {"name": "Dashboard", "url": "admin:index", "permissions": ["auth.view_user"]},
+        # {"name": "Site", "url": "/", "new_window": True},
+>>>>>>> 0d3d1ea66e2c705bac8263807d4e1d17085d9a60
     ],
 
     # Ordem e agrupamento do menu lateral
     "order_with_respect_to": [
         "auth",  # Usuários e grupos primeiro
         "decryptor",
+<<<<<<< HEAD
         "authentication",  # Seu app principal
+=======
+        "authentication", 
+>>>>>>> 0d3d1ea66e2c705bac8263807d4e1d17085d9a60
     ],
 
     "icons": {
@@ -171,5 +193,9 @@ JAZZMIN_SETTINGS = {
         "decryptor.paymentproof": "fas fa-file-invoice-dollar",
     },
 
+<<<<<<< HEAD
     "navigation_expanded": True,  # Menu lateral já aberto
+=======
+    "navigation_expanded": True,  
+>>>>>>> 0d3d1ea66e2c705bac8263807d4e1d17085d9a60
 }

@@ -33,7 +33,11 @@ class PaymentProofAdmin(admin.ModelAdmin):
 
     def recebido_em(self, obj):
         return obj.received_at
+<<<<<<< HEAD
     recebido_em.short_description = "Data de Envio"
+=======
+    recebido_em.short_description = "Data Recebimento"
+>>>>>>> 0d3d1ea66e2c705bac8263807d4e1d17085d9a60
 
     def preview(self, obj):
         if not obj.file:

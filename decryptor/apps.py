@@ -4,3 +4,4 @@ from django.apps import AppConfig
 class DecryptorConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
     name = 'decryptor'
+    verbose_name = 'Comprovantes'

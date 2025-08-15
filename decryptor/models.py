@@ -28,7 +28,11 @@ class PaymentProof(models.Model):
 
     def __str__(self):
         return f"{self.contact_number} - {self.media_type} - {self.status}"
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> 0d3d1ea66e2c705bac8263807d4e1d17085d9a60
     class Meta:
         verbose_name = "Comprovante"
         verbose_name_plural = "Comprovantes"
