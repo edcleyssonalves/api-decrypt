@@ -1,6 +1,6 @@
 # API Decryptor
 
-API desenvolvida em Django REST para automatizar o processamento de comprovantes de pagamento recebidos via WhatsApp. O sistema permite o upload de arquivos criptografados (.enc), realiza a descriptografia, extrai informações relevantes de PDFs e imagens utilizando OCR, e disponibiliza esses dados por meio de endpoints seguros e autenticados. Ideal para integrar fluxos de validação financeira, auditoria ou automação de recebimento de comprovantes.
+API desenvolvida em Django REST FRAMEWORK para automatizar o processamento de comprovantes de pagamento recebidos via WhatsApp. O sistema permite o upload de arquivos criptografados (.enc), realiza a descriptografia, extrai informações relevantes de PDFs e imagens utilizando OCR, e disponibiliza esses dados por meio de endpoints seguros e autenticados. Ideal para integrar fluxos de validação financeira, auditoria ou automação de recebimento de comprovantes.
 
 ## Funcionalidades
 
