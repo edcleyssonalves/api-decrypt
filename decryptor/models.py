@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class PaymentProof(models.Model):
     # dados do contato
     contact_name = models.CharField(max_length=255, blank=True, null=True)
@@ -24,10 +25,10 @@ class PaymentProof(models.Model):
         ],
         default="pending"
     )
-    
+
     def __str__(self):
         return f"{self.contact_number} - {self.media_type} - {self.status}"
-    
+
     class Meta:
         verbose_name = "Comprovante"
         verbose_name_plural = "Comprovantes"

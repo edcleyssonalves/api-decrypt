@@ -11,7 +11,6 @@ from .utils import descriptografar_midia, ler_arquivo
 import re
 
 
-
 class PaymentProofCreateListView(generics.ListCreateAPIView):
     permission_classes = [IsAuthenticated]
     queryset = PaymentProof.objects.all()

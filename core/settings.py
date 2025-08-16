@@ -19,7 +19,6 @@ SECRET_KEY = 'django-insecure-)cifjimd)dzv%-$2+*_3-@%gs-$5af#_*f4m4$_qiay48b_#nw
 DEBUG = True
 
 
-
 ALLOWED_HOSTS = ['*']
 
 
@@ -36,10 +35,10 @@ INSTALLED_APPS = [
     # libs
     'rest_framework',
     'rest_framework_simplejwt',
-    # apps 
+    # apps
     'authentication',
     'decryptor',
-]   
+]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -155,7 +154,7 @@ REST_FRAMEWORK = {
 
 SIMPLE_JWT = {
     "ACCESS_TOKEN_LIFETIME": timedelta(days=7),  # validade do token de acesso
-    "REFRESH_TOKEN_LIFETIME": timedelta(days=14), # validade do token de atualização
+    "REFRESH_TOKEN_LIFETIME": timedelta(days=14),  # validade do token de atualização
 }
 
 
@@ -181,7 +180,7 @@ JAZZMIN_SETTINGS = {
     "order_with_respect_to": [
         "auth",  # Usuários e grupos primeiro
         "decryptor",
-        "authentication", 
+        "authentication",
     ],
 
     "icons": {
@@ -191,5 +190,5 @@ JAZZMIN_SETTINGS = {
         "decryptor.paymentproof": "fas fa-file-invoice-dollar",
     },
 
-    "navigation_expanded": True,  
+    "navigation_expanded": True,
 }

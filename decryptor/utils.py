@@ -16,6 +16,7 @@ INFO_KEYS = {
     "document": b"WhatsApp Document Keys"
 }
 
+
 def descriptografar_midia(media_url: str, media_key_b64: str, tipo_midia: str) -> tuple[bytes, str]:
     """
     Descriptografa mídia do WhatsApp (.enc) e retorna conteúdo em bytes e extensão do arquivo.

@@ -1,3 +1,3 @@
 [flake8]
-exclude = venv-api-flix
+exclude = venv-decrypt
 ignore = E501
