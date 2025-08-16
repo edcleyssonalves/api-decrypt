@@ -66,5 +66,6 @@ Veja [`decryptor/urls.py`](decryptor/urls.py):
 ![Python](https://img.shields.io/badge/Python_3.11+-3776AB?style=for-the-badge&logo=python&logoColor=white)
 ![Django](https://img.shields.io/badge/Django_5.x-092E20?style=for-the-badge&logo=django&logoColor=white)
 ![DRF](https://img.shields.io/badge/Django%20REST%20Framework-ff1709?style=for-the-badge&logo=django&logoColor=white)
-![Pillow](https://img.shields.io/badge/Pillow-FFDD00?style=for-the-badge&logo=python&logoColor=black)
+![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
 ![JWT](https://img.shields.io/badge/JWT%20Auth-000000?style=for-the-badge&logo=jsonwebtokens&logoColor=white)
+![Pillow](https://img.shields.io/badge/Pillow-FFDD00?style=for-the-badge&logo=python&logoColor=black)
